@@ -28,5 +28,5 @@ def add_iptable_rules():
         if ip not in subprocess.getoutput('sudo iptables -L'):
             subprocess.getoutput('sudo iptables -I INPUT -s {} -j DROP'.format(ip))
 
-            
-add_iptable_rules()
+if __name__ == "__main__":
+    add_iptable_rules()
