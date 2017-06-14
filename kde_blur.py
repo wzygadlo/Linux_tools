@@ -6,4 +6,3 @@ konsole_id = subprocess.getoutput('xdotool getactivewindow')
 
 if konsole_id is not None:
     subprocess.getoutput(blur + konsole_id)
-
