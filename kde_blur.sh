@@ -1,11 +1,5 @@
-#!/bin/bash
-
-blur='xprop -f _KDE_NET_WM_BLUR_BEHIND_REGION 32c -set _KDE_NET_WM_BLUR_BEHIND_REGION 0 -id '
-konsole_id=$(xdotool getactivewindow)
-
-if [ -n $konsole_id ] 
-then
-	for kid in $konsole_id;
-	do $blur $kid;
-	done;
+if [[ $(ps --no-header -p $PPID -o comm) =~ yakuake|konsole ]]; 
+	then for wid in $(xdotool search --pid $PPID); 
+	do xprop -f _KDE_NET_WM_BLUR_BEHIND_REGION 32c -set _KDE_NET_WM_BLUR_BEHIND_REGION 0 -id $wid; 
+	done
 fi
