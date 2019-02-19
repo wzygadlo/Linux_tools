@@ -28,7 +28,7 @@ def find_ip_address():
 def add_iptable_rules():
     ip_addr = find_ip_address()
     for ip in ip_addr:
-        if ip not in subprocess.getoutput('sudo iptables -L'):
+        if ip not in subprocess.getoutput('sudo iptables -L -n'):
             subprocess.getoutput('sudo iptables -I INPUT -s {} -j DROP'.format(ip))
 
 if __name__ == "__main__":
