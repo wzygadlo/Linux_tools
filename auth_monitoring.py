@@ -20,7 +20,7 @@ def find_ip_address():
             ip_addr.append(re.findall(r'\b[0-9]+(?:\.[0-9]+){3}\b', message))
     uniq_ip = collections.Counter((list(itertools.chain(*ip_addr))))
     for key, value in uniq_ip.items():
-        if int(value) > 4:
+        if int(value) > 3:
             ip.append(key)
     return ip
 
